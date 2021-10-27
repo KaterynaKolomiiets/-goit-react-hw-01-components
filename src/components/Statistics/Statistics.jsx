@@ -1,11 +1,9 @@
 import s from "./Statistics.module.css";
 import PropTypes from "prop-types";
-
-function randomNumber(max) {
-  return Math.round(Math.random() * max);
-}
+import randomNumber from "../../utils/function-randomNumber";
 
 const Statistics = ({ title, stats }) => {
+
   return (
     <section className={s.statistics}>
       {title && <h2 className={s.title}>{title}</h2>}
@@ -15,9 +13,7 @@ const Statistics = ({ title, stats }) => {
           return (
             <li
               style={{
-                backgroundColor: `rgba(${randomNumber(255)},${randomNumber(
-                  255
-                )},${randomNumber(255)}, 0.5 )`,
+                backgroundColor: `rgba(${randomNumber(0, 255)}, 0.5`,
               }}
               className={s.statListItem}
               key={item.id}
@@ -34,7 +30,11 @@ const Statistics = ({ title, stats }) => {
 
 Statistics.propTypes = {
   title: PropTypes.string,
-  stats: PropTypes.array,
+  stats: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    label: PropTypes.string,
+    percentage: PropTypes.number,
+  }))
 };
 
 export default Statistics;
