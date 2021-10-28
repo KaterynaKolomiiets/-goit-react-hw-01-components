@@ -13,7 +13,7 @@ const Statistics = ({ title, stats }) => {
           return (
             <li
               style={{
-                backgroundColor: `rgba(${randomNumber(0, 255)}, 0.5`,
+                backgroundColor: `rgba(${randomNumber(0, 255, 0.5)}`,
               }}
               className={s.statListItem}
               key={item.id}

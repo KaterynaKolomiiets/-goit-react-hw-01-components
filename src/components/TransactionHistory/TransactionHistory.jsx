@@ -5,19 +5,19 @@ const TransactionHistory = ({ items }) => {
   return (
     <table className={s.transactionHistory}>
       <thead>
-        <tr>
-          <th>Type</th>
-          <th>Amount</th>
-          <th>Currency</th>
+        <tr className={s.tr}>
+          <th className={s.th}>Type</th>
+          <th className={s.th}>Amount</th>
+          <th className={s.th}>Currency</th>
         </tr>
       </thead>
       <tbody>
         {items.map((item) => {
           return (
-            <tr key={item.id}>
-              <td>{item.type}</td>
-              <td>{item.amount}</td>
-              <td>{item.currency}</td>
+            <tr className={s.tr} key={item.id}>
+              <td className={s.td}>{item.type}</td>
+              <td className={s.td}>{item.amount}</td>
+              <td className={s.td}>{item.currency}</td>
             </tr>
           );
         })}
